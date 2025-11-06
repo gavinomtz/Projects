@@ -1,51 +1,144 @@
-# Arduino Keypad Servo Door Lock System
+# Embedded Access Control System
 
-This project implements a password-protected door locking mechanism using an Elegoo UNO R3, a 4x4 membrane keypad, and a micro servo actuator.  
-When the correct 4-digit PIN is entered on the keypad, the servo rotates to unlock the mechanism. Incorrect PIN entries trigger a buzzer and red indicator LED.
-
----
-
-## Features
-
-- 4-digit PIN code entry
-- 4x4 matrix keypad for input
-- Micro servo for lock mechanism actuation
-- Visual + audible feedback (LED + buzzer)
-- Lock resets automatically after delay
-- Simple Arduino C++ based state logic
+A microcontroller-based authentication system implementing secure access control using a 4x4 matrix keypad and servo-actuated locking mechanism. Built on Arduino platform with real-time input validation and multi-modal user feedback.
 
 ---
 
-## Hardware Used
+## Overview
 
-| Component | Purpose |
-|----------|---------|
-| Elegoo UNO R3 | main microcontroller |
-| 4x4 membrane keypad | numeric input |
-| SG90 micro servo | lock actuator |
-| Red LED | access denied indicator |
-| Green LED | access granted indicator |
-| Piezo buzzer | alarm feedback |
+This embedded system demonstrates hardware-software integration for IoT security applications. The system validates user credentials through keypad input, controls physical access via servo actuation, and provides real-time feedback through visual and audible indicators.
 
 ---
 
-## Code Overview
+## Core Features
 
-- PIN is defined in code (`String password = "1234";`)
-- `#` = Enter/submit PIN
-- `*` = clear/reset input
-- Correct PIN → servo rotates to 90° (unlock)
-- After 5s → returns to 0° (locked)
-- Incorrect PIN → buzzer + red LED flash
+* **Password Authentication** - 4-digit PIN validation with input buffering
+* **Matrix Keypad Interface** - 4x4 membrane keypad with debouncing and key scanning
+* **Servo Actuation Control** - PWM-based motor control for lock mechanism
+* **Multi-Modal Feedback** - LED status indicators and piezo buzzer alerts
+* **State Machine Logic** - Automatic timeout and lock reset functionality
+* **Real-Time Processing** - Event-driven architecture with non-blocking I/O
+
+---
+
+## Hardware Architecture
+
+| Component | Function | Interface |
+|-----------|----------|-----------|
+| Elegoo UNO R3 (ATmega328P) | Main MCU | - |
+| 4x4 Membrane Keypad | User input device | GPIO matrix scanning |
+| SG90 Micro Servo | Lock actuator | PWM (Pin 10) |
+| Red LED | Denial indicator | Digital output |
+| Green LED | Grant indicator | Digital output |
+| Piezo Buzzer | Audible alarm | Digital output |
 
 ---
 
-## Skills Demonstrated
+## Wiring Diagram
 
-- Embedded C++ programming
-- Matrix keypad scanning / data entry handling
-- Actuator control (PWM servo)
-- User authentication logic in firmware
-- Hardware feedback loops (LED, buzzer)
+![Project Wiring](images/access-control-system-wiring.png)
 
 ---
+
+## System Operation
+
+1. User enters PIN via keypad (`*` to clear, `#` to submit)
+2. Firmware validates input against stored credential
+3. **Access Granted**: Servo rotates 90° (unlock) → 5s delay → returns to 0° (lock)
+4. **Access Denied**: Red LED + buzzer activation for 3s
+
+---
+
+## Technical Skills Demonstrated
+
+* **Embedded Systems Programming** - Bare-metal C++ on AVR architecture
+* **Hardware Interfacing** - GPIO, PWM, and peripheral driver implementation
+* **Input Validation** - String parsing and authentication logic
+* **State Management** - Event-driven firmware with timing control
+* **Security Concepts** - Basic authentication and access control implementation
+* **Circuit Design** - Component integration and pin assignment
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* Arduino IDE 1.8+ or PlatformIO
+* Keypad library (`Keypad.h`)
+* Servo library (`Servo.h`)
+
+---
+
+### Installation
+
+1. Clone this directory:
+```bash
+git clone https://github.com/gavinomtz/embedded-systems-projects/tree/main/access-control-system
+cd access-control-system
+```
+
+2. Open the `.ino` file in Arduino IDE
+
+3. Install required libraries via Library Manager
+
+4. Upload to your Arduino UNO R3
+
+---
+
+### Pin Configuration
+
+| Pin | Component |
+|-----|-----------|
+| 2-5 | Keypad columns |
+| 6-9 | Keypad rows |
+| 10 | Servo signal |
+| 11 | Red LED |
+| 12 | Green LED |
+| 13 | Buzzer |
+
+---
+
+### Default Credentials
+
+* **Default PIN**: `1234`
+* To change: modify `password` variable in code
+
+---
+
+## Usage
+
+1. Power on the system
+2. Enter your 4-digit PIN using the keypad
+3. Press `#` to submit
+4. Press `*` to clear input and start over
+
+---
+
+## Development Environment
+
+* **Platform**: Arduino IDE / PlatformIO
+* **Language**: C++ (Arduino framework)
+* **Libraries**: Keypad.h, Servo.h
+* **MCU**: ATmega328P (16MHz)
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## Author
+
+**Your Name**
+- GitHub: [@gavinomtz](https://github.com/gavinomtz)
+- LinkedIn: [Gavino Martinez](https://www.linkedin.com/in/gavinomartinez/)
+
+---
+
+## Acknowledgments
+
+* Arduino community for hardware abstraction libraries
+* Elegoo for accessible development hardware
