@@ -26,6 +26,12 @@ This reduces digital I/O pin usage and demonstrates efficient display driving fo
 
 ---
 
+## Wiring Diagram
+
+![Project Wiring](images/environment-display-shiftregister-wiring.png)
+
+---
+
 ## Library Dependencies
 
 | Library | Purpose |
