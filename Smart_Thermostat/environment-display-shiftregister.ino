@@ -1,5 +1,5 @@
-#include "ShiftedLCD.h"
-#include "DHT.h"
+#include <ShiftedLCD.h>
+#include <DHT.h>
 
 // DHT setup
 #define DHTPIN 4
