@@ -132,7 +132,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Author
 
-**Your Name**
+**Gavino Martinez**
 - GitHub: [@gavinomtz](https://github.com/gavinomtz)
 - LinkedIn: [Gavino Martinez](https://www.linkedin.com/in/gavinomartinez/)
 
