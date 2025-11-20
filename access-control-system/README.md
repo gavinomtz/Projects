@@ -68,8 +68,6 @@ This embedded system demonstrates hardware-software integration for IoT security
 * Keypad library (`Keypad.h`)
 * Servo library (`Servo.h`)
 
----
-
 ### Installation
 
 1. Clone this directory:
@@ -84,7 +82,6 @@ cd access-control-system
 
 4. Upload to your Arduino UNO R3
 
----
 
 ### Pin Configuration
 
@@ -97,7 +94,6 @@ cd access-control-system
 | 12 | Green LED |
 | 13 | Buzzer |
 
----
 
 ### Default Credentials
 
@@ -121,12 +117,6 @@ cd access-control-system
 * **Language**: C++ (Arduino framework)
 * **Libraries**: Keypad.h, Servo.h
 * **MCU**: ATmega328P (16MHz)
-
----
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
