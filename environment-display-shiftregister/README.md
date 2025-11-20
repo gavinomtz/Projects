@@ -142,10 +142,6 @@ This architecture is relevant for:
 | Humidity range | 20-80% RH (DHT11 spec) |
 | Display type | 16x2 character LCD |
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## Author
 
 **Gavino Martinez**
